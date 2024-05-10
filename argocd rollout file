@@ -1,0 +1,57 @@
+#Rollout Manifest (rollout.yaml)
+
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: onix-digital-rollout
+spec:
+  replicas: 3 
+  selector:
+  matchLabels:
+    app: onix-digital
+  template:
+    metadata:
+     labels:
+      app: onix-digital
+   spec:
+     containers:
+     – name: onix-digital-container
+       image: your-container-registry/your-image:tag 
+       ports:
+        – containerPort: 80
+
+
+
+#Service Manifest (service.yaml):
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: onix-digital-service
+spec:
+  ports:
+    -port: 80
+     targetPort: 80
+  selector:
+    app: onix-digital
+
+
+
+#Ingress Manifest (ingress.yaml):
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: onix-digital-ingress
+spec:
+  rules:
+  - host: onix.example.com   # Replace with your domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: onix-digital-service
+            port:
+              number: 80
