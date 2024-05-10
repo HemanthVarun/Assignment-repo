@@ -6,16 +6,13 @@ metadata:
 	name: onix-digital
 spec:
 	Destinatination:
-	server: 'https://localhost:8443'
+	server: 'https://127.0.0.1:42303/applications'
 	namespace: default
 project: default
 source:
-	repoURL: <YOUR_GITHUB_REPO_URL>
+	repoURL: https://github.com/HemanthVarun/Assignment-repo
 	targetRevision: HEAD
 	path: /onix-digital
-	helm:
-  		valueFiles:
-    		- values.yaml   # Optional: if you have custom Helm values
 	syncPolicy:
 		automated:
   			prune: true
@@ -52,7 +49,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: yourdomain.com   # Replace with your domain name
+    - host: aizensoske.online   # my domain name
       http:
         paths:
           - path: /
