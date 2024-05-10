@@ -1,0 +1,14 @@
+#Service Manifest (service.yaml):
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: onix-digital-service
+  labels:
+    app: onix-digital
+    app.kubernetes.io/part-of: webapp
+    app.kubernetes.io/managed-by: argocd
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
