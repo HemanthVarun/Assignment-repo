@@ -45,7 +45,7 @@ metadata:
   name: onix-digital-ingress
 spec:
   rules:
-  - host: onix.example.com   # Replace with your domain
+  - host: aizensoske.online   # my domain
     http:
       paths:
       - path: /
