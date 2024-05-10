@@ -11,8 +11,8 @@ spec:
 project: default
 source:
 	repoURL: https://github.com/HemanthVarun/Assignment-repo
-	targetRevision: HEAD
-	path: /onix-digital
+	targetRevision: main
+	path: /Argocd. file
 	syncPolicy:
 		automated:
   			prune: true
@@ -34,8 +34,6 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-  selector:
-    app: onix-digital
 
 
 
